@@ -33,7 +33,7 @@ ALLOWED_HOSTS = [
     "127.0.0.1",
     "localhost",
     "https://recipe-reaper-0a41fc4875e2.herokuapp.com/",
-    "https://*.herokuapp.com"
+    ".herokuapp.com"
 ]
 
 
@@ -47,7 +47,6 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'recipe_search',
-    'recipe_reapers',
 ]
 
 MIDDLEWARE = [
