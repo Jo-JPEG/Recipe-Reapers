@@ -11,3 +11,4 @@ cloudinary_python.txt
 reviews
 staticfiles
 venv
+db.sqlite3
