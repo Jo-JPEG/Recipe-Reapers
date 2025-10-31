@@ -3,7 +3,7 @@ from cloudinary.models import CloudinaryField
 from django.core.validators import MinValueValidator
 
 
-class Recipe(models.model):
+class Recipe(models.Model):
     """
     For the recipe model, ingredients have their own model
     so we can add as many as we need
