@@ -32,6 +32,7 @@ DEBUG = os.environ.get("DEBUG") == "True"
 ALLOWED_HOSTS = [
     "127.0.0.1",
     "localhost",
+    "https://recipe-reaper-0a41fc4875e2.herokuapp.com/",
 ]
 
 
