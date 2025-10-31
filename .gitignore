@@ -1,6 +1,7 @@
 core.Microsoft*
 core.mongo*
 core.python*
+db.sqlite3
 env.py
 __pycache__/
 *.py[cod]
@@ -11,3 +12,64 @@ cloudinary_python.txt
 reviews
 staticfiles
 venv
+# Python
+__pycache__/
+*.py[cod]
+*.so
+.Python
+env/
+venv/
+.venv/
+ENV/
+env.bak/
+venv.bak/
+
+# Django
+*.log
+local_settings.py
+db.sqlite3
+media/
+staticfiles/
+
+# macOS
+.DS_Store
+
+# VS Code
+.vscode/
+
+# IDEs
+.idea/
+.mypy_cache/
+.pytest_cache/
+.coverage
+coverage.xml
+htmlcov/
+.pylint.d/
+.ropeproject/
+.env
+.env.*
+.envrc
+.eggs/
+*.egg-info/
+dist/
+build/
+*.egg
+
+# Misc
+*.swp
+*.swo
+*~
+Thumbs.db
+ehthumbs.db
+docs/_build/
+cloudinary_python.txt
+reviews
+core.Microsoft*
+core.mongo*
+core.python*
+.github/
+node_modules/
+static/
+db.sqlite3
+env.py
+README.md
