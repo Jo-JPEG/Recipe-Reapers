@@ -25,8 +25,18 @@ h1 {
     margin-bottom: 1rem;
 }
 
-p {
-    font-size: 1rem;
-    line-height: 1.5;
-    margin-bottom: 1rem;
+nav {
+    background-color: var(--secondary-dark);
+    color: var(--text-color-light);
+    padding: 1rem;
+}
+
+footer {
+    background-color: var(--secondary-light);
+    color: var(--text-color-dark);
+    padding: auto;
+}
+
+footer p {
+    font-size: 0.9rem;
 }
