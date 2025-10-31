@@ -1,0 +1,42 @@
+/* css variables  */
+:root {
+    --primary-font: sans-serif;
+    --secondary-font: serif;
+    --text-color-dark: black;
+    --text-color-light: white;
+    --main-light: #FAEAE0;
+    --main-dark: #02020B;
+    --secondary-light: #FAD2BD;
+    --secondary-dark: #2E382E;
+    --accent-color: #F26419;
+    --contrast-color: #90708C;
+    --pop-color: #87A330;
+}
+
+body {
+    background-color: var(--main-light);
+    font-family: var(--primary-font);
+    color: var(--text-color-dark);
+}
+
+h1 {
+    color: var(--accent-color);
+    font-size: 2rem;
+    margin-bottom: 1rem;
+}
+
+nav {
+    background-color: var(--secondary-dark);
+    color: var(--text-color-light);
+    padding: 1rem;
+}
+
+footer {
+    background-color: var(--secondary-light);
+    color: var(--text-color-dark);
+    padding: auto;
+}
+
+footer p {
+    font-size: 0.9rem;
+}
