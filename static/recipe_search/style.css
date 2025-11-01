@@ -16,10 +16,8 @@
 
 body {
     background-color: var(--main-light);
-    font-family: "Creepster", system-ui;
-    font-weight: 400;
-    font-style: normal;
-    /* color: var(--text-color-dark); */
+    font-family: sans-serif;
+    color: var(--text-color-dark);
 }
 
 h1 {
@@ -32,6 +30,9 @@ nav {
     background-color: var(--secondary-dark);
     color: #87A330;
     padding: 1rem;
+    font-family: "Creepster", system-ui;
+    font-weight: 400;
+    font-style: normal;
 }
 
 footer {
@@ -43,6 +44,9 @@ footer {
     color: #87A330;
     text-align: center;
     padding: 1rem;
+    font-family: "Creepster", system-ui;
+    font-weight: 400;
+    font-style: normal;
     /* background-color: var(--secondary-light);
     color: var(--text-color-dark);
     padding: auto; */
