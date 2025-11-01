@@ -13,9 +13,12 @@
     --pop-color: #87A330;
 }
 
+
 body {
     background-color: var(--main-light);
-    font-family: var(--primary-font);
+    font-family: "Creepster", system-ui;
+    font-weight: 400;
+    font-style: normal;
     color: var(--text-color-dark);
 }
 
@@ -27,14 +30,22 @@ h1 {
 
 nav {
     background-color: var(--secondary-dark);
-    color: var(--text-color-light);
+    color: #87A330;
     padding: 1rem;
 }
 
 footer {
-    background-color: var(--secondary-light);
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    background: #02020B;
+    color: #87A330;
+    text-align: center;
+    padding: 1rem;
+    /* background-color: var(--secondary-light);
     color: var(--text-color-dark);
-    padding: auto;
+    padding: auto; */
 }
 
 footer p {
