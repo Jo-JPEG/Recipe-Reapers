@@ -4,6 +4,8 @@
 
 Welcome to Recipe Reapers! Where we harvest all the best recipes for tasty treats and spooky beverages. Use our unique "Trick or Treat" user rating system to save your favourites and warn others about dud instructions!
 
+Read me
+
 
 ![Site image](#)
 
