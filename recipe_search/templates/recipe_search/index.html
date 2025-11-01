@@ -3,14 +3,234 @@
 
 
 {% block content %}
-<p>(this is index.html)</p>
-  <h1>Recipe Reapers</h1>
-  <p>Your one-stop solution for all your spooky recipe needs.</p>
+  <main class="homepage pb-5">
+    <section class="py-5">
+      <div class="container">
+        <div class="row justify-content-center">
+          <div class="col-lg-8 text-center text-lg-start">
+            <p class="text-uppercase text-muted fw-semibold mb-2">Welcome to</p>
+            <h1 class="display-4 fw-bold">Recipe Reapers</h1>
+            <p class="lead text-secondary mb-0">
+              Brew spine-chilling treats, rank your favorite cursed confections, and join a coven
+              of fellow mischief-makers in the kitchen.
+            </p>
+          </div>
+        </div>
+        {% if not user.is_authenticated %}
+          <div class="row justify-content-center mt-5">
+            <div class="col-lg-5">
+              <div class="card shadow-sm border-0">
+                <div class="card-body p-4 text-center text-lg-start">
+                  <h2 class="h4 fw-bold mb-2 text-center text-lg-start">Join the Coven</h2>
+                  <p class="text-muted">
+                    AllAuth Login template to be inserted here.
+                  </p>
+                  <div class="d-grid gap-2">
+                    <a class="btn btn-primary" href="#">Log In</a>
+                    <a class="btn btn-outline-dark" href="#">Sign Up</a>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        {% endif %}
+      </div>
+    </section>
 
-  <h2>Our Favorites</h2>
-  <p>Explore our collection of haunted dishes and eerie delights!</p>
+    <section class="py-5 bg-light">
+      <div class="container">
+        <div class="row justify-content-center">
+          <div class="col-lg-10">
+            <div class="text-center text-lg-start mb-4">
+              <h2 class="fw-bold">Treats Leaderboard</h2>
+              <p class="text-muted mb-0">Top haunted bites from the community this week.</p>
+            </div>
+            <div class="card border-0 shadow-sm">
+              <div class="card-body p-0">
+                <ul class="list-group list-group-flush">
+                  <li class="list-group-item d-flex flex-column flex-md-row align-items-md-center justify-content-between py-4">
+                    <div class="mb-3 mb-md-0">
+                      <h3 class="h5 mb-1">Slime Monster Stew</h3>
+                      <span class="badge bg-secondary">Cauldron Classic</span>
+                    </div>
+                    <div class="text-md-end">
+                      <span class="text-muted small d-block mb-2">Total Treats: 200</span>
+                      <a class="btn btn-outline-primary btn-sm" href="#">View</a>
+                    </div>
+                  </li>
+                  <li class="list-group-item d-flex flex-column flex-md-row align-items-md-center justify-content-between py-4">
+                    <div class="mb-3 mb-md-0">
+                      <h3 class="h5 mb-1">Mummy Dogs Gone Wrong</h3>
+                      <span class="badge bg-secondary">Bewitched Snack</span>
+                    </div>
+                    <div class="text-md-end">
+                      <span class="text-muted small d-block mb-2">Total Treats: 125</span>
+                      <a class="btn btn-outline-primary btn-sm" href="#">View</a>
+                    </div>
+                  </li>
+                  <li class="list-group-item d-flex flex-column flex-md-row align-items-md-center justify-content-between py-4">
+                    <div class="mb-3 mb-md-0">
+                      <h3 class="h5 mb-1">Spiderweb Disaster Cake</h3>
+                      <span class="badge bg-secondary">Spectral Dessert</span>
+                    </div>
+                    <div class="text-md-end">
+                      <span class="text-muted small d-block mb-2">Total Treats: 98</span>
+                      <a class="btn btn-outline-primary btn-sm" href="#">View</a>
+                    </div>
+                  </li>
+                  <li class="list-group-item d-flex flex-column flex-md-row align-items-md-center justify-content-between py-4">
+                    <div class="mb-3 mb-md-0">
+                      <h3 class="h5 mb-1">Witch&rsquo;s Coven Cupcakes</h3>
+                      <span class="badge bg-secondary">Moonlit Dessert</span>
+                    </div>
+                    <div class="text-md-end">
+                      <span class="text-muted small d-block mb-2">Total Treats: 76</span>
+                      <a class="btn btn-outline-primary btn-sm" href="#">View</a>
+                    </div>
+                  </li>
+                </ul>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
 
-  <h2>Search</h2>
-  <p>I will be a search box</p>
-  <input type="text" placeholder="Search for spooky recipes..." />
+    <section class="py-5">
+      <div class="container">
+        <div class="row justify-content-between align-items-end gy-3">
+          <div class="col-lg-8">
+            <h2 class="fw-bold mb-1">Cursed Hall of Fame</h2>
+            <p class="text-muted mb-0">Most tricked items by user votes.</p>
+          </div>
+        </div>
+        <div class="row g-4 mt-1">
+          <div class="col-md-6 col-lg-4">
+            <article class="card h-100 shadow-sm border-0">
+              <div class="ratio ratio-4x3 card-img-top bg-dark bg-opacity-10 rounded-top"></div>
+              <div class="card-body d-flex flex-column">
+                <h3 class="h5">Slime Monster Stew</h3>
+                <p class="text-muted small mb-2">20 trick ratings</p>
+                <p class="text-secondary flex-grow-1">
+                  &ldquo;Looks like it crawled out of a swamp, tastes surprisingly minty!&rdquo;
+                </p>
+                <a class="btn btn-primary mt-3 align-self-start" href="#">View Recipe</a>
+              </div>
+            </article>
+          </div>
+          <div class="col-md-6 col-lg-4">
+            <article class="card h-100 shadow-sm border-0">
+              <div class="ratio ratio-4x3 card-img-top bg-dark bg-opacity-10 rounded-top"></div>
+              <div class="card-body d-flex flex-column">
+                <h3 class="h5">Mummy Dogs Gone Wrong</h3>
+                <p class="text-muted small mb-2">5 trick ratings</p>
+                <p class="text-secondary flex-grow-1">
+                  &ldquo;A classic Halloween treat, if you&rsquo;re into culinary chaos.&rdquo;
+                </p>
+                <a class="btn btn-primary mt-3 align-self-start" href="#">View Recipe</a>
+              </div>
+            </article>
+          </div>
+          <div class="col-md-6 col-lg-4">
+            <article class="card h-100 shadow-sm border-0">
+              <div class="ratio ratio-4x3 card-img-top bg-dark bg-opacity-10 rounded-top"></div>
+              <div class="card-body d-flex flex-column">
+                <h3 class="h5">Spiderweb Disaster Cake</h3>
+                <p class="text-muted small mb-2">10 trick ratings</p>
+                <p class="text-secondary flex-grow-1">
+                  &ldquo;More spiders than cake, but still surprisingly edible!&rdquo;
+                </p>
+                <a class="btn btn-primary mt-3 align-self-start" href="#">View Recipe</a>
+              </div>
+            </article>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="py-5 bg-light">
+      <div class="container">
+        <div class="text-center mb-4">
+          <a class="btn btn-link fw-semibold" href="#">Just show me everything!</a>
+        </div>
+        <div class="row justify-content-center">
+          <div class="col-xl-8">
+            <h2 class="fw-bold text-center mb-3">Find a Recipe</h2>
+            <p class="text-muted text-center mb-4">
+              Search across the Recipe Reapers collection for the perfect cursed creation.
+            </p>
+            <form class="input-group input-group-lg shadow-sm" method="get" action="">
+              <label class="visually-hidden" for="homepage-search">Search for recipes</label>
+              <input
+                id="homepage-search"
+                name="q"
+                type="search"
+                class="form-control border-0"
+                placeholder="Search for recipes..."
+                autocomplete="off"
+              />
+              <button type="submit" class="btn btn-primary px-4">
+                <i class="fas fa-search me-2"></i>
+                Search
+              </button>
+            </form>
+            <p class="text-muted text-center small mt-4 mb-2 fw-semibold">Key Icons</p>
+            <ul class="list-inline text-muted text-center small">
+              <li class="list-inline-item"><span class="fw-bold text-dark">V</span> Vegan</li>
+              <li class="list-inline-item"><span class="fw-bold text-dark">GF</span> Gluten-Free</li>
+              <li class="list-inline-item"><span class="fw-bold text-dark">VE</span> Vegetarian</li>
+            </ul>
+            <div class="card border-0 shadow-sm mt-5 mb-4">
+              <div class="row g-0 align-items-center">
+                <div class="col-md-4">
+                  <div class="ratio ratio-4x3 bg-dark bg-opacity-10 rounded-start"></div>
+                </div>
+                <div class="col-md-5">
+                  <div class="card-body">
+                    <h3 class="h5">Spooky Cookies</h3>
+                    <p class="text-secondary mb-4">
+                      Invent fiendish flavor combos, then crank the fright meter to see which guests
+                      survive the taste test.
+                    </p>
+                    <a class="btn btn-success" href="#">View Recipe</a>
+                  </div>
+                </div>
+                <div class="col-md-3">
+                  <div class="card-body">
+                    <p class="text-muted text-uppercase small mb-2 text-center">Fright Meter</p>
+                    <div class="d-flex justify-content-between align-items-center mb-2">
+                      <span class="small fw-semibold text-danger">Trick</span>
+                      <span class="small fw-semibold text-success">Treat</span>
+                    </div>
+                    <div class="progress" style="height: 0.75rem;">
+                      <div
+                        class="progress-bar bg-danger"
+                        role="progressbar"
+                        style="width: 50%;"
+                        aria-valuenow="50"
+                        aria-valuemin="0"
+                        aria-valuemax="100"
+                      ></div>
+                      <div
+                        class="progress-bar bg-success"
+                        role="progressbar"
+                        style="width: 50%;"
+                        aria-valuenow="50"
+                        aria-valuemin="0"
+                        aria-valuemax="100"
+                      ></div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="border border-2 border-secondary border-opacity-25 rounded-3 p-5 text-center text-muted mt-4 mb-5">
+              Infinite scroll to be implemented here by AI.
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+  </main>
 {% endblock content %}
