@@ -53,6 +53,7 @@ INSTALLED_APPS = [
     "allauth.account",
     "allauth.socialaccount",
     "recipe_search",
+    "reapers_profile",
 ]
 
 SITE_ID = 1
