@@ -9,10 +9,6 @@ def index(request):
     View to return to the index page with search results and highlights.
     """
 
-    sacred_treats = Recipe.objects.order_by("title")[:3]
-    hall_of_fame = Recipe.objects.order_by("title")[:3]
-    featured_recipe = Recipe.objects.order_by("title").first()
-
     relevant_recipes = None
     search_query = ""
 
@@ -26,9 +22,6 @@ def index(request):
             relevant_recipes = Recipe.objects.none()
 
     context = {
-        "sacred_treats": sacred_treats,
-        "hall_of_fame": hall_of_fame,
-        "featured_recipe": featured_recipe,
         "relevant_recipes": relevant_recipes,
         "search_query": search_query,
     }
@@ -44,7 +37,8 @@ def all_recipes(request):
     recipes_qs = Recipe.objects.all()
     if search_query:
         recipes_qs = recipes_qs.filter(
-            Q(title__icontains=search_query) | Q(recipe__icontains=search_query)
+            Q(title__icontains=search_query) | Q(
+                    recipe__icontains=search_query)
         )
 
     recipes = list(recipes_qs.order_by("title"))
