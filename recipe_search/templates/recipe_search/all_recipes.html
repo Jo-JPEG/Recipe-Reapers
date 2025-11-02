@@ -1,0 +1,186 @@
+{% extends "base.html" %}
+{% load static %}
+
+{% block title %}All Recipes | Recipe Reapers{% endblock %}
+
+{% block content %}
+  <main class="all-recipes-page pb-5">
+    <section class="py-5 bg-light border-bottom">
+      <div class="container text-center">
+        <p class="text-uppercase text-muted fw-semibold small mb-2">All Recipes</p>
+        <h1 class="display-5 fw-bold mb-3">Find Your Next Frightful Favorite</h1>
+        <p class="lead text-secondary mb-0">
+          Browse every recipe in the vault, try out new themes, and tune the fright level to suit your coven.
+        </p>
+      </div>
+    </section>
+
+    <section class="py-5">
+      <div class="container">
+        <div class="row justify-content-center">
+          <div class="col-xl-8 text-center">
+            <h2 class="fw-bold mb-4">Find Recipe by Type</h2>
+          </div>
+        </div>
+        <div class="row justify-content-center mb-5">
+          <div class="col-xl-10">
+            <div class="row g-4 justify-content-between text-center category-circle-row">
+              {% for category in category_filters %}
+                <div class="col-6 col-sm-4 col-lg">
+                  <a
+                    class="category-tile mx-auto text-center d-block text-decoration-none"
+                    href="?type={{ category.value }}"
+                    aria-label="Filter by {{ category.label }}"
+                  >
+                    <div class="category-circle d-flex align-items-center justify-content-center">
+                      <i class="fas {{ category.icon }} fa-2x text-secondary"></i>
+                    </div>
+                    <p class="category-label fw-semibold small text-uppercase mt-3 mb-0">
+                      {{ category.label }}
+                    </p>
+                  </a>
+                </div>
+              {% endfor %}
+            </div>
+          </div>
+        </div>
+
+        <div class="row justify-content-center">
+          <div class="col-xl-10">
+            <form class="recipe-filter-form" method="get" action="">
+              <div class="row g-3 align-items-end">
+                <div class="col-md-3">
+                  <label class="form-label text-muted fw-semibold text-uppercase small" for="filter-type">Type</label>
+                  <select id="filter-type" name="type" class="form-select">
+                    {% for option in filter_options.type %}
+                      <option value="{{ option.value }}" {% if selected_filters.type == option.value %}selected{% endif %}>
+                        {{ option.label }}
+                      </option>
+                    {% endfor %}
+                  </select>
+                </div>
+                <div class="col-md-3">
+                  <label class="form-label text-muted fw-semibold text-uppercase small" for="filter-dietary">Dietary</label>
+                  <select id="filter-dietary" name="dietary" class="form-select">
+                    {% for option in filter_options.dietary %}
+                      <option value="{{ option.value }}" {% if selected_filters.dietary == option.value %}selected{% endif %}>
+                        {{ option.label }}
+                      </option>
+                    {% endfor %}
+                  </select>
+                </div>
+                <div class="col-md-3">
+                  <label class="form-label text-muted fw-semibold text-uppercase small" for="filter-trick">Trick 'n Treat</label>
+                  <select id="filter-trick" name="trick_level" class="form-select">
+                    {% for option in filter_options.trick_level %}
+                      <option value="{{ option.value }}" {% if selected_filters.trick_level == option.value %}selected{% endif %}>
+                        {{ option.label }}
+                      </option>
+                    {% endfor %}
+                  </select>
+                </div>
+                <div class="col-md-3 d-flex gap-2">
+                  <button type="submit" class="btn btn-dark flex-grow-1">Apply Filters</button>
+                  <a class="btn btn-outline-secondary flex-grow-1" href="{% url 'all_recipes' %}">Clear</a>
+                </div>
+              </div>
+
+              <div class="row g-2 align-items-center mt-3">
+                <div class="col-lg-9 col-sm-8">
+                  <label class="visually-hidden" for="recipe-search">Search recipes</label>
+                  <input
+                    id="recipe-search"
+                    name="q"
+                    type="search"
+                    class="form-control form-control-lg search-input"
+                    placeholder="Search recipes..."
+                    value="{{ search_query }}"
+                    autocomplete="off"
+                  />
+                </div>
+                <div class="col-lg-3 col-sm-4">
+                  <button type="submit" class="btn btn-dark search-btn w-100">
+                    <span class="visually-hidden">Search</span>
+                    <i class="fas fa-search"></i>
+                  </button>
+                </div>
+              </div>
+            </form>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="pb-5">
+      <div class="container">
+        {% if recipe_cards %}
+          <div class="row gy-4 justify-content-center">
+            {% for card in recipe_cards %}
+              <div class="col-xl-8 col-lg-9">
+                <article class="card recipe-card border-0 shadow-sm">
+                  <div class="ratio ratio-16x9 recipe-card__image">
+                    {% if card.recipe.image %}
+                      <img
+                        src="{{ card.recipe.image.url }}"
+                        alt="{{ card.recipe.title }}"
+                        class="w-100 h-100"
+                        style="object-fit: cover;"
+                      />
+                    {% else %}
+                      <span class="recipe-card__image-placeholder">Image Placeholder</span>
+                    {% endif %}
+                  </div>
+                  <div class="card-body text-center">
+                    <h3 class="h5 fw-bold">{{ card.recipe.title }}</h3>
+                    <p class="text-secondary small mb-4">{{ card.recipe.recipe|truncatewords:40 }}</p>
+                    <div class="fright-meter mb-4">
+                      <div class="fright-meter__bar">
+                        <div
+                          class="fright-meter__indicator"
+                          style="left: {{ card.pointer_percent }}%;"
+                          aria-hidden="true"
+                        ></div>
+                        <div
+                          class="fright-meter__pointer"
+                          style="left: {{ card.pointer_percent }}%;"
+                          role="img"
+                          aria-label="Trick intensity {{ card.trick_percent }} percent"
+                        >
+                          <span class="fright-meter__pointer-icon" aria-hidden="true">🎃</span>
+                          <span class="fright-meter__pointer-value">{{ card.trick_percent }}%</span>
+                        </div>
+                        <div class="fright-meter__segment fright-meter__segment--trick" style="width: {{ card.trick_percent }}%;"></div>
+                        <div class="fright-meter__segment fright-meter__segment--treat" style="width: {{ card.treat_percent }}%;"></div>
+                      </div>
+                      <div class="fright-meter__labels text-uppercase small fw-semibold">
+                        <span>Trick</span>
+                        <span>Treat</span>
+                      </div>
+                    </div>
+                    <div class="d-flex justify-content-center gap-3">
+                      <a class="btn btn-warning text-dark fw-semibold px-4" href="#">
+                        View Recipe
+                      </a>
+                      <a class="btn btn-purple fw-semibold px-4" href="#">
+                        Save Recipe
+                      </a>
+                    </div>
+                  </div>
+                </article>
+              </div>
+            {% endfor %}
+          </div>
+          <div class="expandable-placeholder text-center text-muted mt-5">
+            <span class="d-block fw-semibold mb-2">Expandable area for search results</span>
+            <p class="mb-0">Add infinite scroll or pagination to reveal more cursed creations.</p>
+          </div>
+        {% else %}
+          <div class="expandable-placeholder text-center text-muted">
+            <span class="d-block fw-semibold mb-2">No recipes found just yet.</span>
+            <p class="mb-0">Try resetting your filters or entering a different search term.</p>
+          </div>
+        {% endif %}
+      </div>
+    </section>
+  </main>
+{% endblock content %}

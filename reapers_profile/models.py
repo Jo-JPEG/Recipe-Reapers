@@ -1,13 +1,16 @@
 from django.db import models
-
+from django.contrib.auth.models import User
+from recipe_search.models import Recipe  # Import your Recipe model
 
 class UserProfile(models.Model):
-    user = models.OneToOneField(
-        'auth.User', on_delete=models.CASCADE, related_name='profile'
-    )
-    user_recipes = models.ManyToManyField(
-        'recipe_search.Recipe', blank=True, related_name='profiles'
+    user = models.OneToOneField(User, on_delete=models.CASCADE, related_name='profile')
+    
+    # This is the field for "liked recipes"
+    liked_recipes = models.ManyToManyField(
+        Recipe, 
+        related_name='liked_by', 
+        blank=True
     )
 
     def __str__(self):
-        return f"{self.user.username}'s Profile"
+        return self.user.username

@@ -1,0 +1,41 @@
+{% extends "base.html" %}
+
+{% block content %}
+<div class="container">
+    <div class="row">
+        <div class="col-12 text-center">
+            <h1>Welcome, {{ user.username }}!</h1>
+            <p>This is your profile page.</p>
+            <hr>
+        </div>
+    </div>
+    
+    <div class="row">
+        <div class="col-12">
+            <h2>Your Liked Recipes</h2>
+        </div>
+        
+        {% if liked_recipes %}
+            {% for recipe in liked_recipes %}
+                <div class="col-md-4 mb-3">
+                    <div class="card">
+                        {% if recipe.image %}
+                            <img src="{{ recipe.image.url }}" class="card-img-top" alt="{{ recipe.title }}">
+                        {% endif %}
+                        <div class="card-body">
+                            <h5 class="card-title">
+                                <a href="{% url 'recipe_detail' recipe.pk %}">{{ recipe.title }}</a>
+                            </h5>
+                            <p class="card-text">By: {{ recipe.author.username }}</p>
+                        </div>
+                    </div>
+                </div>
+            {% endfor %}
+        {% else %}
+            <div class="col-12">
+                <p>You haven't liked any recipes yet. Go find some!</p>
+            </div>
+        {% endif %}
+    </div>
+</div>
+{% endblock %}
