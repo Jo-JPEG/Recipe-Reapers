@@ -1,7 +1,7 @@
 /* css variables  */
 :root {
-    --primary-font: sans-serif;
-    --secondary-font: serif;
+    --primary-font: "Roboto", system-ui;
+    --secondary-font: "Creepster", system-ui;
     --text-color-dark: black;
     --text-color-light: white;
     --main-light: #FAEAE0;
@@ -26,16 +26,53 @@ h1 {
     margin-bottom: 1rem;
 }
 
-.nav-right {
-    float: right;
-} 
+#navbar {
+    background-color: var(--main-dark);
+    padding: 1rem;
+    font-family: "Creepster", system-ui;
+}
+
+#profile-link {
+  float: right;
+}
+
+#home-link {
+  float: left;
+}
+
+ul {
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+  overflow: hidden;
+}
+
+ul li {
+  float: right;
+}
+
+#logo {
+    height: 50px;
+}
+
+
 nav {
-    background-color: var(--secondary-dark);
-    color: #87A330;
     padding: 1rem;
     font-family: "Creepster", system-ui;
     font-weight: 400;
     font-style: normal;
+}
+
+nav a {
+    color: var(--accent-color);
+    text-decoration: none;
+    font-size: 2rem;
+    margin-right: 1rem;
+}
+nav a:hover {
+    color: var(--pop-color);
+    text-decoration: underline;
+    font-weight: bold;
 }
 
 
@@ -45,22 +82,36 @@ footer {
     bottom: 0;
     left: 0;
     width: 100%;
-    background: #02020B;
-    color: #87A330;
+    background: var(--main-dark);
+    color: var(--pop-color);
     text-align: center;
     padding: 1rem;
     font-family: "Creepster", system-ui;
     font-weight: 400;
     font-style: normal;
-    /* background-color: var(--secondary-light);
-    color: var(--text-color-dark);
-    padding: auto; */
+}
+
+footer p {
+    margin: 10px;
+    float: left;
+    font-size: 0.9rem;
+}
+
+.footer-center {
+    margin: 10px;
+    float: left;
+}
+
+#newsletter {
+    margin: 10px;
+    float: right;
 }
 
 footer a {
     color: #87A330;
 }
 
-footer p {
-    font-size: 0.9rem;
+footer a:hover {
+    color: var(--main-light);
+    text-decoration: underline;
 }
