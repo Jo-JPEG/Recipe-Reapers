@@ -26,6 +26,9 @@ h1 {
     margin-bottom: 1rem;
 }
 
+.nav-right {
+    float: right;
+} 
 nav {
     background-color: var(--secondary-dark);
     color: #87A330;
@@ -34,6 +37,8 @@ nav {
     font-weight: 400;
     font-style: normal;
 }
+
+
 
 footer {
     position: fixed;
