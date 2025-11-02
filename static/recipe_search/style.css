@@ -28,7 +28,7 @@ h1 {
 
 .nav-right {
     float: right;
-} 
+}
 nav {
     background-color: var(--secondary-dark);
     color: #87A330;
@@ -54,7 +54,6 @@ nav {
 }
 
 footer {
-    position: fixed;
     bottom: 0;
     left: 0;
     width: 100%;
