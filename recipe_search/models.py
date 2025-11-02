@@ -12,5 +12,8 @@ class Recipe(models.Model):
     image = CloudinaryField(null=True, blank=True)
     recipe = models.TextField()
 
+    class Meta:
+        unique_together = ['recipe']
+
     def __str__(self):
         return self.title
