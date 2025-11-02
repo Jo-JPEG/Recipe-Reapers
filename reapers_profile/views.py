@@ -1,3 +1,7 @@
 from django.shortcuts import render
 
-# Create your views here.
+
+def reaper_profile(request):
+    """View to display a users profile"""
+
+    return render(request, 'reapers_profile/profile.html')
