@@ -21,5 +21,5 @@ urlpatterns = [
     path('admin/', admin.site.urls),
     path('', include('recipe_search.urls')),
     path("accounts/", include("allauth.urls")),
-    path('reaper_profile/', include('reapers_profile.urls')),
+    path('reapers_profile/', include('reapers_profile.urls')),
 ]
