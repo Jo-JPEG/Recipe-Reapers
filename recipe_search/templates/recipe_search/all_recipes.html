@@ -27,14 +27,18 @@
             <div class="row g-4 justify-content-between text-center category-circle-row">
               {% for category in category_filters %}
                 <div class="col-6 col-sm-4 col-lg">
-                  <div class="category-tile mx-auto text-center d-block">
+                  <a
+                    class="category-tile mx-auto text-center d-block text-decoration-none"
+                    href="?type={{ category.value }}"
+                    aria-label="Filter by {{ category.label }}"
+                  >
                     <div class="category-circle d-flex align-items-center justify-content-center">
                       <i class="fas {{ category.icon }} fa-2x text-secondary"></i>
                     </div>
                     <p class="category-label fw-semibold small text-uppercase mt-3 mb-0">
                       {{ category.label }}
                     </p>
-                  </div>
+                  </a>
                 </div>
               {% endfor %}
             </div>
@@ -49,8 +53,8 @@
                   <label class="form-label text-muted fw-semibold text-uppercase small" for="filter-type">Type</label>
                   <select id="filter-type" name="type" class="form-select">
                     {% for option in filter_options.type %}
-                      <option value="{{ option }}" {% if selected_filters.type == option %}selected{% endif %}>
-                        {{ option }}
+                      <option value="{{ option.value }}" {% if selected_filters.type == option.value %}selected{% endif %}>
+                        {{ option.label }}
                       </option>
                     {% endfor %}
                   </select>
@@ -59,8 +63,8 @@
                   <label class="form-label text-muted fw-semibold text-uppercase small" for="filter-dietary">Dietary</label>
                   <select id="filter-dietary" name="dietary" class="form-select">
                     {% for option in filter_options.dietary %}
-                      <option value="{{ option }}" {% if selected_filters.dietary == option %}selected{% endif %}>
-                        {{ option }}
+                      <option value="{{ option.value }}" {% if selected_filters.dietary == option.value %}selected{% endif %}>
+                        {{ option.label }}
                       </option>
                     {% endfor %}
                   </select>
@@ -69,8 +73,8 @@
                   <label class="form-label text-muted fw-semibold text-uppercase small" for="filter-trick">Trick 'n Treat</label>
                   <select id="filter-trick" name="trick_level" class="form-select">
                     {% for option in filter_options.trick_level %}
-                      <option value="{{ option }}" {% if selected_filters.trick_level == option %}selected{% endif %}>
-                        {{ option }}
+                      <option value="{{ option.value }}" {% if selected_filters.trick_level == option.value %}selected{% endif %}>
+                        {{ option.label }}
                       </option>
                     {% endfor %}
                   </select>
