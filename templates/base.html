@@ -53,7 +53,7 @@
             <li class="nav-item">
               <a class="nav-link{% if request.path == all_recipes_url %} active{% endif %}"
                {% if request.path == all_recipes_url %}aria-current="page"{% endif %}
-               href="{% url 'all_recipes' %}">All Recipes</a>
+               href="#">All Recipes</a>
             </li>
             {% if request.user.is_authenticated %}
             <li class="nav-item">

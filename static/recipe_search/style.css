@@ -38,7 +38,20 @@ nav {
     font-style: normal;
 }
 
+.logout-bg {
+    background-image: url("../images/signout-bg.jpg");
+    background-position: center;
+    background-size: cover;
+    padding: 15%;
+    border-radius: 20px;
+    margin: 5%;
+    font-family: "Creepster", system-ui;
+}
 
+.btn {
+    background-color: #02020B;
+
+}
 
 footer {
     position: fixed;
