@@ -16,9 +16,6 @@ View the live site here: [Recipe Reapers](https://recipe-reaper-0a41fc4875e2.her
 * [About Us](#about-us)
 
 * [Design](#design)
-  * [Colour Scheme](#colour-scheme)
-  * [Typography](#typography)
-  * [Imagery](#imagery)
   * [Wireframes](#wireframes)
 
 * [Features](#features)
@@ -39,3 +36,9 @@ View the live site here: [Recipe Reapers](https://recipe-reaper-0a41fc4875e2.her
   * [Acknowledgments](#acknowledgments)
 
 ---
+##Design
+
+!Wireframes(docs\images\homepage-wireframe.png)
+!Wireframes(docs\images\detailed-recipe-wireframe.PNG)
+!Wireframe(docs\images\all-recipes-wireframe.png)
+!wireframe(docs\images\profilePage-wireframe.PNG)
