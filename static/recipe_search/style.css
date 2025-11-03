@@ -440,3 +440,13 @@ footer p {
 .cursed-section .card p {
     color: rgba(248, 244, 252, 0.8);
 }
+
+.logout-bg {
+    background-image: url("static/recipe_search/images/signout-bg.jpg");
+    background-position: center;
+    background-size: cover;
+    padding: 15%;
+    border-radius: 20px;
+    margin: 5%;
+    font-family: "Creepster", system-ui;
+}
