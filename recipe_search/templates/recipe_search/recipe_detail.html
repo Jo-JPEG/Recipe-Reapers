@@ -3,7 +3,7 @@
     <h1 class="mb-3">{{ recipe.title }}</h1>
     <p class="mb-3">{{ recipe.recipe }}</p>
 
-    <a class="btn btn-lg">Click to add to your favourites!</a>
+    <a href="{% url 'add_to_favourites' pk=recipe.pk %}" class="btn btn-lg">Click to add to your favourites!</a>
 </div>
 
 {% endblock content %}

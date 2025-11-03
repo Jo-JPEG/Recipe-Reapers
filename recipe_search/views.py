@@ -1,9 +1,8 @@
 from django.db.models import Q
-from django.shortcuts import render
-from django.contrib.auth.models import User
+from django.shortcuts import render, redirect
 
 from .models import Recipe
-from reapers_profile.models import UserProfile, UserLike
+from reapers_profile.models import UserLike
 
 
 def index(request):
@@ -74,18 +73,19 @@ def all_recipes(request):
 def recipe_detail(request, pk):
     """Displays full recipe"""
 
-    recipe = Recipe.objects.filter(pk=pk)
+    recipe = Recipe.objects.get(pk=pk)
+    print("This is the recipe: ", recipe.title)
 
     context = {'recipe': recipe}
 
     return render(request, "recipe_search/recipe_detail.html", context)
 
 
-def add_to_favourites(request, user_pk, recipe_pk):
+def add_to_favourites(request, pk):
     """gets user credantials, creates instance of user like for recipe"""
 
-    user_profile = UserProfile.objects.get(pk=user_pk)
-    recipe = Recipe.objects.get(pk=recipe_pk)
+    user_profile = request.user.profile
+    recipe = Recipe.objects.get(pk=pk)
 
     user_like, created = UserLike.objects.get_or_create(
         user_profile=user_profile,
