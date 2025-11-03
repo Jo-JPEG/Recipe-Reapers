@@ -7,8 +7,8 @@ Welcome to Recipe Reapers! Where we harvest all the best recipes for tasty treat
 Read me
 
 
-![Site image](#)
-
+![Site image](docs/images/site-image.png)
+  
 View the live site here: [Recipe Reapers](https://recipe-reaper-0a41fc4875e2.herokuapp.com/)
 
 ## CONTENTS
@@ -38,7 +38,7 @@ View the live site here: [Recipe Reapers](https://recipe-reaper-0a41fc4875e2.her
 ---
 ##Design
 
-![Wireframes](docs\images\homepage-wireframe.png)
-![Wireframes](docs\images\detailed-recipe-wireframe.PNG)
-![Wireframe](docs\images\all-recipes-wireframe.png)
-![wireframe](docs\images\profilePage-wireframe.PNG)
+![Wireframes](docs/images/homepage-wireframe.png)
+![Wireframes](docs/images/detailed-recipe-wireframe.png)
+![Wireframe](docs/images/all-recipes-wireframe.png)
+![wireframe](docs/images/profilePage-wireframe.png)
