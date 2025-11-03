@@ -34,7 +34,7 @@
             <p class="text-muted text-center mb-4">
               Search across the Recipe Reapers collection for the perfect cursed creation.
             </p>
-            <form class="input-group input-group-lg shadow-sm" method="post" action="">
+            <form class="input-group input-group-lg shadow-sm" method="post" action="{% url 'index' %}">
               {% csrf_token %}
               <label class="visually-hidden" for="homepage-search">Search for recipes</label>
               <input
@@ -74,7 +74,7 @@
                           </p>
                           <a
                             class="btn btn-primary mt-3 align-self-start"
-                            href="{% url 'all_recipes' %}?q={{ recipe.title|urlencode }}"
+                            href="{% url 'recipe_detail' pk=recipe.pk %}"
                           >
                             View Recipe
                           </a>

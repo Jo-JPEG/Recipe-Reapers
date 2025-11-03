@@ -58,6 +58,7 @@
           <div class="row row-cols-1 row-cols-md-2 g-4 mt-1">
             {% for card in recipe_cards %}
               <div class="col">
+                <h1 class="h5 fw-bold">{{ card.recipe.title }}</h1>
                 <article class="card recipe-card border-0 shadow-sm h-100">
                   <div class="ratio ratio-16x9 recipe-card__image">
                     {% if card.recipe.image %}
@@ -72,7 +73,7 @@
                     {% endif %}
                   </div>
                   <div class="card-body text-start d-flex flex-column">
-                    <h3 class="h5 fw-bold">{{ card.recipe.title }}</h3>
+
                     <p class="text-secondary small mb-4 flex-grow-1">{{ card.recipe.recipe|truncatewords:40 }}</p>
                     <div class="fright-meter mb-4">
                       <div class="fright-meter__bar">
@@ -99,12 +100,7 @@
                       </div>
                     </div>
                     <div class="d-flex gap-3">
-                      <a class="btn btn-warning text-dark fw-semibold px-4" href="#">
-                        View Recipe
-                      </a>
-                      <a class="btn btn-purple fw-semibold px-4" href="#">
-                        Save Recipe
-                      </a>
+
                     </div>
                   </div>
                 </article>
