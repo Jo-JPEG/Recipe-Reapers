@@ -16,7 +16,8 @@ def index(request):
         search_query = request.POST.get("q", "").strip()
         if search_query:
             relevant_recipes = Recipe.objects.filter(
-                Q(title__icontains=search_query) | Q(recipe__icontains=search_query)
+                Q(title__icontains=search_query) | Q(
+                    recipe__icontains=search_query)
             ).order_by("title")
         else:
             relevant_recipes = Recipe.objects.none()
@@ -46,7 +47,8 @@ def all_recipes(request):
     fright_meter_patterns = [35, 45, 55, 65]
     recipe_cards = []
     for index, recipe in enumerate(recipes):
-        trick_percent = fright_meter_patterns[index % len(fright_meter_patterns)]
+        trick_percent = fright_meter_patterns[index % len(
+            fright_meter_patterns)]
         treat_percent = max(0, 100 - trick_percent)
         pointer_percent = max(4, min(96, trick_percent))
         recipe_cards.append(
